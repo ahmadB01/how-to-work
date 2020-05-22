@@ -48,9 +48,9 @@ struct Command {
 fn main() -> Result<(), String> {
     let args = Command::from_args();
 
-    let path = get_path(args).map_err(|e| format!("{}", e))?;
-    let content = get_content(path).map_err(|e| format!("{}", e))?;
-    display(content).map_err(|e| format!("{}", e))?;
+    let path = get_path(args).map_err(|e| e.to_string())?;
+    let content = get_content(path).map_err(|e| e.to_string())?;
+    display(content).map_err(|e| e.to_string())?;
 
     Ok(())
 }
